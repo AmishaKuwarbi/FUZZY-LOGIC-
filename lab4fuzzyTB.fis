@@ -1,0 +1,41 @@
+[System]
+Name='lab4fuzzyTB'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='food'
+Range=[0 10]
+NumMFs=3
+MF1='rancid':'gaussmf',[1.769 -1.388e-16]
+MF2='good':'trimf',[0.8333 5 9.167]
+MF3='Delicious':'gaussmf',[1.769 10]
+
+[Input2]
+Name='service'
+Range=[0 10]
+NumMFs=3
+MF1='poor':'trimf',[-4.167 0 4.167]
+MF2='good':'trimf',[0.8333 5 9.167]
+MF3='excellent':'trimf',[5.833 10 14.17]
+
+[Output1]
+Name='tip'
+Range=[0 30]
+NumMFs=3
+MF1='cheap':'trimf',[-12.5 0 12.5]
+MF2='average':'trimf',[2.5 15 27.5]
+MF3='generous':'trimf',[17.5 30 42.5]
+
+[Rules]
+1 1, 1 (1) : 2
+0 2, 2 (1) : 2
+3 3, 3 (1) : 2
